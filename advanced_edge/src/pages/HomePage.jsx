@@ -1,9 +1,10 @@
 import HeroSection from "../components/Hero";
+import QuickScan from "../components/QuickScan";
+import WhyChoose from "../components/WhyChoose";
 import OurApproach from "../components/OurApproach";
 import OurServices from "../components/OurServices";
 import PersonalTouch from "../components/PersonalTouch";
-import QuickScan from "../components/QuickScan";
-import WhyChoose from "../components/WhyChoose";
+import CallToAction from "../components/CallToAction";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <OurApproach />
       <OurServices />
       <PersonalTouch />
+      <CallToAction />
     </div>
   );
 };

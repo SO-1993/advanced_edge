@@ -58,7 +58,7 @@
 }
 
 .why-choose {
-  background-color: #cbbcdf;
+  background-color: #8f6cbd70;
   padding: 1rem 2rem;
 }
 
@@ -74,5 +74,10 @@
 
 .personal-touch {
   background-color: #f0e660;
+  padding: 1rem 2rem;
+}
+
+.call-to-action {
+  background-color: #f8a5f1;
   padding: 1rem 2rem;
 }
