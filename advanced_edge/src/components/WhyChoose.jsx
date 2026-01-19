@@ -1,15 +1,9 @@
 import '../css/App.css';
 import '../css/index.css';
 
-function QuickScan() {
-    return <div className="quick-scan">
-        <div className="basic-icons-row">
-            <p>🛠  Craftsmanship</p>
-            <p>📋 Standards</p>
-            <p>🤝 Professional</p>
-            <p>✨ Detail</p>
-        </div>
-        <div className="detailed-icons-row">
+function WhyChoose() {
+    return <div className="why-choose">
+        <div className="why-choose-row">
             <h2>Why Choose Advanced Edge</h2>
             <div className="craftsmanship-info">
             <h5>🛠  Craftsmanship Built on Experience</h5>
@@ -27,9 +21,6 @@ function QuickScan() {
             <h5>✨  Pride in Detail & Finish</h5>
             <p>A 10-20 word description to be added here to flesh this out!</p>
             </div>
-
-
-        
         </div>
     </div> 
 
@@ -37,4 +28,4 @@ function QuickScan() {
     
 }
 
-export default QuickScan;
+export default WhyChoose;
