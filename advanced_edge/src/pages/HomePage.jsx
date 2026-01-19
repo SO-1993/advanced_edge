@@ -5,6 +5,7 @@ import OurApproach from "../components/OurApproach";
 import OurServices from "../components/OurServices";
 import PersonalTouch from "../components/PersonalTouch";
 import CallToAction from "../components/CallToAction";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
       <OurServices />
       <PersonalTouch />
       <CallToAction />
+      <Footer />
     </div>
   );
 };
