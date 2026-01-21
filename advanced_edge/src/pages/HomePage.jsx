@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <QuickScan />
+      {/* <QuickScan />
       <WhyChoose />
       <OurApproach />
       <OurServices />
@@ -21,7 +21,7 @@ const HomePage = () => {
       <PersonalTouch />
       <FAQs />
       <CallToAction />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
