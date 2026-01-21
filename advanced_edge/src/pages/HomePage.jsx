@@ -5,6 +5,7 @@ import OurApproach from "../components/OurApproach";
 import OurServices from "../components/OurServices";
 import Reviews from "../components/Reviews";
 import PersonalTouch from "../components/PersonalTouch";
+import FAQs from "../components/FAQ";
 import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 
@@ -18,6 +19,7 @@ const HomePage = () => {
       <OurServices />
       <Reviews />
       <PersonalTouch />
+      <FAQs />
       <CallToAction />
       <Footer />
     </div>
