@@ -13,15 +13,15 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      {/* <QuickScan />
-      <WhyChoose />
-      <OurApproach />
-      <OurServices />
-      <Reviews />
-      <PersonalTouch />
-      <FAQs />
-      <CallToAction />
-      <Footer /> */}
+      <Footer />
+      {/* <QuickScan /> */}
+      {/* <WhyChoose /> */}
+      {/* <OurApproach /> */}
+      {/* <OurServices /> */}
+      {/* <Reviews /> */}
+      {/* <PersonalTouch /> */}
+      {/* <FAQs /> */}
+      {/* <CallToAction /> */}
     </div>
   );
 };
