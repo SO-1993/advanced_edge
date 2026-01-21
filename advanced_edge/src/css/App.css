@@ -359,3 +359,57 @@
     padding: 0;
   }
 }
+
+
+/* OUR SERVICES SECTION */
+.our-services {
+  padding: 5rem 2rem;
+  background-color: var(--bg-main);
+}
+
+.our-services h2 {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 3rem;
+}
+
+/* Horizontal row layout */
+.services-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Items styling */
+.services-row p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+  text-align: center;
+  flex: 1; /* makes items take equal width */
+}
+
+/* Optional hover effect */
+.services-row p:hover {
+  color: var(--accent);
+  background-color: rgba(249, 115, 22, 0.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .services-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .services-row p {
+    width: 100%;
+  }
+}

@@ -16,7 +16,7 @@ const HomePage = () => {
       <QuickScan />
       <WhyChoose />
       <OurApproach />
-      {/* <OurServices /> */}
+      <OurServices />
       {/* <Reviews /> */}
       {/* <PersonalTouch /> */}
       {/* <FAQs /> */}
