@@ -300,3 +300,62 @@
     max-width: none;
   }
 }
+
+
+/* OUR APPROACH SECTION */
+.our-approach {
+  padding: 6rem 2rem;
+  background-color: white;
+}
+
+.our-approach h2 {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 4rem;
+}
+
+/* Grid layout for steps */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Individual steps */
+.approach-item {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Heading & icon */
+.approach-item h5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Description */
+.approach-item p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .approach-item {
+    padding: 0;
+  }
+}
