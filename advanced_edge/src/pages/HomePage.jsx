@@ -14,8 +14,8 @@ const HomePage = () => {
     <div>
       <HeroSection />
       <QuickScan />
-      {/* <WhyChoose /> */}
-      {/* <OurApproach /> */}
+      <WhyChoose />
+      <OurApproach />
       {/* <OurServices /> */}
       {/* <Reviews /> */}
       {/* <PersonalTouch /> */}

@@ -2,30 +2,33 @@ import '../css/App.css';
 import '../css/index.css';
 
 function WhyChoose() {
-    return <div className="why-choose">
-        <div className="why-choose-row">
-            <h2>Why Choose Advanced Edge</h2>
-            <div className="craftsmanship-info">
-            <h5>🛠  Craftsmanship Built on Experience</h5>
-            <p>A 10-20 word description to be added here to flesh this out!</p>
-            </div>
-            <div className="standards-info">
-            <h5>📋  Uncompromising Standards</h5>
-            <p>A 10-20 word description to be added here to flesh this out!</p>
-            </div>
-            <div className="professional-info">
-            <h5>🤝  Professional, Transparent Service</h5>
-            <p>A 10-20 word description to be added here to flesh this out!</p>
-            </div>
-            <div className="detail-info">
-            <h5>✨  Pride in Detail & Finish</h5>
-            <p>A 10-20 word description to be added here to flesh this out!</p>
-            </div>
-        </div>
-    </div> 
+  return (
+    <section className="why-choose">
+      <div className="why-choose-inner">
+        <h2>Why Choose Advanced Edge</h2>
 
-       
-    
+        <div className="why-item">
+          <h5>🛠 Craftsmanship Built on Experience</h5>
+          <p>Precision-led groundwork and paving shaped by years of hands-on, professional site experience.</p>
+        </div>
+
+        <div className="why-item">
+          <h5>📋 Uncompromising Standards</h5>
+          <p>Every stage carefully planned and executed to ensure long-term performance and refined results.</p>
+        </div>
+
+        <div className="why-item">
+          <h5>🤝 Professional, Transparent Service</h5>
+          <p>Clear communication, honest guidance, and well-defined pricing from consultation to completion.</p>
+        </div>
+
+        <div className="why-item">
+          <h5>✨ Pride in Detail & Finish</h5>
+          <p>Careful attention to every detail, leaving a clean, precise finish that reflects our reputation.</p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default WhyChoose;
