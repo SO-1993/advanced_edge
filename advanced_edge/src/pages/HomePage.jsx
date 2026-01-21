@@ -13,8 +13,7 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <Footer />
-      {/* <QuickScan /> */}
+      <QuickScan />
       {/* <WhyChoose /> */}
       {/* <OurApproach /> */}
       {/* <OurServices /> */}
@@ -22,6 +21,7 @@ const HomePage = () => {
       {/* <PersonalTouch /> */}
       {/* <FAQs /> */}
       {/* <CallToAction /> */}
+      <Footer />
     </div>
   );
 };
