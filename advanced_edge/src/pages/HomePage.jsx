@@ -19,7 +19,7 @@ const HomePage = () => {
       <OurServices />
       <Reviews />
       <PersonalTouch />
-      {/* <FAQs /> */}
+      <FAQs />
       {/* <CallToAction /> */}
       <Footer />
     </div>
