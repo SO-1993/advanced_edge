@@ -1,21 +1,24 @@
-import {Link} from "react-router-dom"
-import '../css/App.css/'
-import '../css/index.css/'
+import { Link } from "react-router-dom";
+import '../css/App.css';
+import '../css/index.css';
 
 function Header() {
-    return <header className="header">
+    return (
+      <header className="header">
         <div className="header_brand">
-            <Link to="/">Advanced Edge</Link>
+          <Link to="/">Advanced Edge</Link>
         </div>
-        <div className="header-links">
-        {/* <Link to="/" className="header-link">Home</Link> */}
-        <Link to="/gallery" className="header-link">Gallery</Link>
+  
+        <div /> {/* spacer column */}
+  
+        <div className="header-utility">
+          <div className="header-links">
+            <Link to="/gallery" className="header-link">Gallery</Link>
+          </div>
+          <button className="call-now">Call Now</button>
         </div>
-        <div>
-        <button className="call-now">Call Now</button>
-        </div>
-    </header>
-    
-}
-
-export default Header
+      </header>
+    );
+  }
+  
+  export default Header;
