@@ -18,7 +18,7 @@ const HomePage = () => {
       <OurApproach />
       <OurServices />
       <Reviews />
-      {/* <PersonalTouch /> */}
+      <PersonalTouch />
       {/* <FAQs /> */}
       {/* <CallToAction /> */}
       <Footer />

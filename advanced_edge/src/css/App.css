@@ -479,3 +479,41 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* PERSONAL TOUCH SECTION */
+.personal-touch {
+  padding: 6rem 2rem;
+  background-color: var(--bg-dark);
+  color: white;
+  text-align: center;
+}
+
+/* Quote */
+.personal-touch-message {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle accent line */
+.personal-touch-message::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--accent);
+  opacity: 0.8;
+  margin: 2rem auto 0;
+}
+
+/* Author */
+.personal-touch-author {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
