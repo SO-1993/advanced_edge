@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./pages/Homepage";
-import ServicesPage from "./pages/ServicesPage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
 
 function App() {
   return (
@@ -12,9 +10,7 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
         </Routes>
       </main>
       </div>
