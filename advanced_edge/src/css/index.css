@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-main: #f9fafb;
-  --bg-dark: #111827;
-  --text-main: #1f2933;
-  --text-muted: #6b7280;
-  --border-subtle: #e5e7eb;
-  --accent: #f97316;
-
+  --bg-main: #f3f4f2;       /* soft off-white for sections */
+  --bg-dark: #1f2d26;       /* dark green/forest for footer or CTA */
+  --text-main: #1f2d26;     /* deep green for text */
+  --text-muted: #5f6f65;    /* muted stone grey */
+  --border-subtle: #d2d7d3; /* light stone dividers */
+  --accent: #8f9f6f;        /* soft sage green for buttons, highlights */
   --max-width: 1200px;
 }
 
