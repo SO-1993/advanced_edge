@@ -15,12 +15,12 @@ const HomePage = () => {
       <HeroSection />
       <QuickScan />
       <WhyChoose />
-      <OurApproach />
       <OurServices />
+      <OurApproach />
       <Reviews />
       <PersonalTouch />
       <FAQs />
-      {/* <CallToAction /> */}
+      <CallToAction />
       <Footer />
     </div>
   );
