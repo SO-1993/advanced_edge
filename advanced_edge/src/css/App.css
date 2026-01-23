@@ -789,3 +789,53 @@
     text-align: center;
   }
 }
+
+/* CONTACT LAYOUT WRAPPER */
+.contact-layout {
+  max-width: 1000px;
+  margin: 3rem auto 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Left info panel */
+.contact-info {
+  text-align: left;
+  padding-top: 0; /* remove previous top padding */
+}
+
+.contact-info > div {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.contact-info h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b2b4b2;
+  margin-bottom: 0.25rem;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-info {
+    text-align: center;
+    padding-top: 0;
+  }
+}

@@ -3,7 +3,30 @@ import { useState } from 'react';
 import '../css/App.css';
 import '../css/index.css';
 
-function ContactForm() {
+export function ContactInformation() {
+    return(
+        <div className="contact-info">
+            <div className="contact-info-phone">
+                <h3>Phone number:</h3>
+                <p>+44 7777 777 777</p>
+            </div>
+            <div className="contact-info-instagram">
+                <h3>Instagram:</h3>
+                <p>Instagram Link</p>
+            </div>
+            <div className="contact-info-facebook">
+                <h3>Facebook:</h3>
+                <p>Facebook Link</p>
+            </div>
+            <div className="contact-info-working-hours">
+                <h3>Working hours:</h3>
+                <p>Monday - Friday: 8:00 - 17:00</p>
+            </div>
+        </div>
+    )
+}
+
+export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telephoneNumber, setTelephoneNumber] = useState("");

@@ -2,7 +2,7 @@
 import '../css/App.css';
 import '../css/index.css';
 import { useNavigate } from 'react-router-dom'; // optional if using routes
-import ContactForm from './ContactForm';
+import Contact from './Contact';
 
 function HeroSection() {
     const navigate = useNavigate();
