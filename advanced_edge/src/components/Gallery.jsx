@@ -28,40 +28,38 @@ const images = [
 ];
 
 // replace with real descriptions 1 > n
-const jobDescriptions = [
-    "- A job that took a really long time to complete.",
-    "- A task that required a lot of patience and effort.",
-    "- Something that finally got finished after many delays.",
-    "- A project that consumed most of your week.",
-    "- A long assignment that tested your perseverance.",
-    "- A chore that felt like it would never end.",
-    "- Something you worked on bit by bit over time.",
-    "- An endeavor that required careful attention to detail.",
-    "- A responsibility that dragged on longer than expected.",
-    "- A complicated process that took many steps.",
-    "- A milestone that demanded sustained focus.",
-    "- A commitment that lasted longer than planned.",
-    "- A goal that took weeks to achieve.",
-    "- A difficult task that required multiple attempts.",
-    "- A slow-moving project that finally reached completion."
+// Pair each image with its own description
+const galleryItems = [
+    { src: image1, text: "Job description for image 1" },
+    { src: image2, text: "Job description for image 2" },
+    { src: image3, text: "Job description for image 3" },
+    { src: image4, text: "Job description for image 4" },
+    { src: image5, text: "Job description for image 5" },
+    { src: image6, text: "Job description for image 6" },
+    { src: image7, text: "Job description for image 7" },
+    { src: image8, text: "Job description for image 8" },
+    { src: image9, text: "Job description for image 9" },
+    { src: image10, text: "Job description for image 10" },
+    { src: image11, text: "Job description for image 11" },
+    { src: image12, text: "Job description for image 12" },
+    { src: image13, text: "Job description for image 13" },
+    { src: image14, text: "Job description for image 14" },
+    { src: image15, text: "Job description for image 15" },
+    { src: image16, text: "Job description for image 16" },
   ];
   
 
   function Gallery() {
     return (
       <div className="gallery-images">
-        {images.map((src, index) => (
+        {galleryItems.map((item, index) => (
           <div key={index} className="image-container">
-            <img src={src} alt={`Gallery ${index + 1}`} />
-            {/* Use index to pick a job description, fallback if fewer descriptions */}
-            <div className="hover-text">
-              {jobDescriptions[index % jobDescriptions.length]}
-            </div>
+            <img src={item.src} alt={`Gallery ${index + 1}`} />
+            <div className="hover-text">{item.text}</div>
           </div>
         ))}
       </div>
     );
   }
   
-
-export default Gallery;
+  export default Gallery;
