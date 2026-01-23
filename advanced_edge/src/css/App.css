@@ -1,98 +1,56 @@
 /* ========================= */
-/* HEADER */
+/* HEADER & FOOTER BASE STYLING */
 /* ========================= */
 
-.header {
+.header,
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo left, spacer middle, utility right */
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  gap: 1rem;
+  z-index: 50;
+}
+
+/* Header specific */
+.header,
+.footer {
   background-color: white;
   border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
-  z-index: 50;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  align-items: center;
-
-  padding: 1.5rem 2.5rem;
 }
 
-/* Brand */
-.header_brand a {
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--text-main);
-}
-
-/* Right utility cluster */
-.header-utility {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  justify-self: end;
-}
-
-/* Nav link */
-.header-link {
-  text-decoration: none;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-}
-
-.header-link:hover {
-  color: var(--accent);
-}
-
-/* Button */
-.call-now {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  padding: 0.6rem 1.5rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.call-now:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-
-/* ========================= */
-/* FOOTER (Mirrored) */
-/* ========================= */
-
+/* Footer specific
 .footer {
   background-color: var(--bg-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  align-items: center;
-
   padding: 3rem 2.5rem;
-}
+} */
 
-/* Brand */
+/* ========================= */
+/* BRAND LOGO IMAGE */
+/* ========================= */
+
+.header_brand a,
 .footer_brand a {
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: white;
+  display: inline-block;
 }
 
-/* Right utility cluster */
+.header_brand a img,
+.footer_brand a img {
+  height: 50px;        /* desktop size */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ========================= */
+/* UTILITY LINKS / BUTTONS */
+/* ========================= */
+
+.header-utility,
 .footer-utility {
   display: flex;
   align-items: center;
@@ -100,21 +58,54 @@
   justify-self: end;
 }
 
-/* Footer link */
+/* Nav / Footer links */
+.header-link,
 .footer-link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: color 0.2s ease;
 }
 
+.header-link {
+  color: var(--text-muted);
+}
+
+.header-link:hover {
+  color: var(--accent);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .footer-link:hover {
   color: var(--accent);
 }
 
-/* Footer button */
+/* Call Now button styling */
+.call-now {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid;
+  background: transparent;
+}
+
+.header .call-now {
+  border-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+.header .call-now:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .footer .call-now {
   border-color: rgba(255, 255, 255, 0.35);
   color: white;
@@ -126,46 +117,31 @@
 }
 
 /* ========================= */
-/* MOBILE */
+/* RESPONSIVE / MOBILE */
 /* ========================= */
-
 @media (max-width: 768px) {
   .header,
   .footer {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
     text-align: center;
+    gap: 1.5rem;
   }
 
   .header-utility,
   .footer-utility {
-    justify-self: end;
+    justify-self: center;
     flex-direction: column;
     gap: 1rem;
   }
-}
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+  .header_brand a img,
+  .footer_brand a img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    background-color: white;
 
-@media (max-width: 768px) {
-  .header,
-  .footer {
-  grid-template-columns: 1.2fr auto 0.8fr;
-}
-
-
-  .header-links,
-  .footer-links {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: flex-end;
-  }
-
-
-  .call-now {
-    justify-self: center;
   }
 }
 
