@@ -1,7 +1,3 @@
-/* index.css defines variables, base resets, typography,
-utility classes, buttons, and cards. */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -15,6 +11,7 @@ utility classes, buttons, and cards. */
   --bg-dark: #1f2d26;
   --text-main: #1f2d26;
   --text-muted: #5f6f65;
+  --text-light: #ffffff;
   --border-subtle: #d2d7d3;
   --accent: #8f9f6f;
 
@@ -30,7 +27,6 @@ utility classes, buttons, and cards. */
 /* ========================= */
 /* RESET & BASE */
 /* ========================= */
-
 *,
 *::before,
 *::after {
@@ -53,19 +49,10 @@ body {
 /* ========================= */
 /* TYPOGRAPHY SYSTEM */
 /* ========================= */
-
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 600;
   letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-}
-
-h5 {
-  font-size: 1.1rem;
 }
 
 h6 {
@@ -83,7 +70,6 @@ p {
 /* ========================= */
 /* LAYOUT UTILITIES */
 /* ========================= */
-
 .section {
   padding: var(--section-padding);
 }
@@ -101,7 +87,6 @@ p {
 /* ========================= */
 /* LINKS */
 /* ========================= */
-
 .link-accent,
 .nav-link {
   position: relative;
@@ -136,7 +121,6 @@ p {
 /* ========================= */
 /* BUTTONS */
 /* ========================= */
-
 .button,
 .call-now,
 .get-in-touch,
@@ -181,8 +165,6 @@ p {
 
 /* ========================= */
 /* CARDS */
-/* ========================= */
-
 .card {
   border-radius: var(--card-radius);
   background-color: var(--bg-main);

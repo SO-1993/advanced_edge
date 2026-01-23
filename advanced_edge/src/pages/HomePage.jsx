@@ -7,7 +7,7 @@ import Reviews from "../components/Reviews";
 import PersonalTouch from "../components/PersonalTouch";
 import FAQs from "../components/FAQ";
 import CallToAction from "../components/CallToAction";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
@@ -21,7 +21,7 @@ const HomePage = () => {
       <PersonalTouch />
       <FAQs />
       <CallToAction />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
