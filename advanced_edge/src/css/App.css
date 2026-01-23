@@ -384,44 +384,74 @@
   margin-bottom: 3rem;
 }
 
-/* Horizontal row layout */
+/* Services row layout */
 .services-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   max-width: var(--max-width);
   margin: 0 auto;
   gap: 2rem;
 }
 
-/* Items styling */
-.services-row p {
-  margin: 0;
-  font-weight: 500;
-  color: var(--text-main);
-  font-size: 1rem;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.25s ease;
-  text-align: center;
-  flex: 1; /* makes items take equal width */
+/* Card */
+.service-card {
+  position: relative;
+  height: 220px;
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional hover effect */
-.services-row p:hover {
-  color: var(--accent);
-  background-color: rgba(249, 115, 22, 0.05);
+/* Dark overlay for text contrast */
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.6)
+  );
+  transition: opacity 0.3s ease;
+}
+
+/* Title text */
+.service-title {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 1rem;
+  text-transform: uppercase;
+}
+
+/* Hover effects */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.service-card:hover .service-overlay {
+  opacity: 0.7;
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .services-row {
-    flex-direction: column;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .services-row p {
-    width: 100%;
+@media (max-width: 500px) {
+  .services-row {
+    grid-template-columns: 1fr;
   }
 }
 
