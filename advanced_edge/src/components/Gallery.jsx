@@ -27,19 +27,41 @@ const images = [
   image13, image14, image15, image16
 ];
 
-function Gallery() {
-  const hoverText = "Placeholder text";
+// replace with real descriptions 1 > n
+const jobDescriptions = [
+    "- A job that took a really long time to complete.",
+    "- A task that required a lot of patience and effort.",
+    "- Something that finally got finished after many delays.",
+    "- A project that consumed most of your week.",
+    "- A long assignment that tested your perseverance.",
+    "- A chore that felt like it would never end.",
+    "- Something you worked on bit by bit over time.",
+    "- An endeavor that required careful attention to detail.",
+    "- A responsibility that dragged on longer than expected.",
+    "- A complicated process that took many steps.",
+    "- A milestone that demanded sustained focus.",
+    "- A commitment that lasted longer than planned.",
+    "- A goal that took weeks to achieve.",
+    "- A difficult task that required multiple attempts.",
+    "- A slow-moving project that finally reached completion."
+  ];
+  
 
-  return (
-    <div className="gallery-images">
-      {images.map((src, index) => (
-        <div key={index} className="image-container">
-          <img src={src} alt={`Gallery ${index + 1}`} />
-          <div className="hover-text">{hoverText}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
+  function Gallery() {
+    return (
+      <div className="gallery-images">
+        {images.map((src, index) => (
+          <div key={index} className="image-container">
+            <img src={src} alt={`Gallery ${index + 1}`} />
+            {/* Use index to pick a job description, fallback if fewer descriptions */}
+            <div className="hover-text">
+              {jobDescriptions[index % jobDescriptions.length]}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  
 
 export default Gallery;
