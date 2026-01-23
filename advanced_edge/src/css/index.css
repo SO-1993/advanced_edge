@@ -1,17 +1,44 @@
+/* index.css defines variables, base resets, typography,
+utility classes, buttons, and cards. */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-main: #f3f4f2;       /* soft off-white for sections */
-  --bg-dark: #1f2d26;       /* dark green/forest for footer or CTA */
-  --text-main: #1f2d26;     /* deep green for text */
-  --text-muted: #5f6f65;    /* muted stone grey */
-  --border-subtle: #d2d7d3; /* light stone dividers */
-  --accent: #8f9f6f;        /* soft sage green for buttons, highlights */
+  /* Layout */
   --max-width: 1200px;
+  --section-padding: 6rem 2rem;
+  --card-radius: 1rem;
+
+  /* Colors */
+  --bg-main: #f3f4f2;
+  --bg-dark: #1f2d26;
+  --text-main: #1f2d26;
+  --text-muted: #5f6f65;
+  --border-subtle: #d2d7d3;
+  --accent: #8f9f6f;
+
+  /* Motion */
+  --transition-fast: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 20px rgba(0,0,0,0.05);
+  --shadow-lift: 0 10px 25px rgba(0,0,0,0.18);
 }
 
-* {
+/* ========================= */
+/* RESET & BASE */
+/* ========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,13 +46,22 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--text-main);
   background-color: var(--bg-main);
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Typography scale */
+/* ========================= */
+/* TYPOGRAPHY SYSTEM */
+/* ========================= */
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
 }
 
 h5 {
@@ -39,49 +75,122 @@ h6 {
   margin-top: 0.25rem;
 }
 
-/* Links */
+p {
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* ========================= */
+/* LAYOUT UTILITIES */
+/* ========================= */
+
+.section {
+  padding: var(--section-padding);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ========================= */
+/* LINKS */
+/* ========================= */
+
+.link-accent,
 .nav-link {
   position: relative;
   text-decoration: none;
-  color: var(--text-main);
+  color: inherit;
   font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
+.link-accent::after,
 .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
-  width: 0;
+  bottom: -3px;
+  width: 0%;
   height: 2px;
   background-color: var(--accent);
-  transition: width 0.25s ease;
+  transition: width var(--transition-fast);
 }
 
+.link-accent:hover,
 .nav-link:hover {
   color: var(--accent);
 }
 
+.link-accent:hover::after,
 .nav-link:hover::after {
   width: 100%;
 }
 
-/* Buttons */
-.call-now {
-  background-color: transparent;
-  border: 1px solid var(--border-subtle);
-  padding: 0.6rem 1.4rem;
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.button,
+.call-now,
+.get-in-touch,
+.submit-btn {
   border-radius: 999px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+/* Primary */
+.button-primary,
+.get-in-touch,
+.submit-btn {
+  background-color: var(--accent);
+  color: #111;
+  border: none;
+}
+
+.button-primary:hover,
+.get-in-touch:hover,
+.submit-btn:hover {
+  background-color: #7f8f5e;
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.button-secondary,
+.call-now {
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
   color: var(--text-main);
 }
 
+.button-secondary:hover,
 .call-now:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background-color: rgba(249, 115, 22, 0.05);
+  background-color: rgba(143, 159, 111, 0.08);
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.card {
+  border-radius: var(--card-radius);
+  background-color: var(--bg-main);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
 }
