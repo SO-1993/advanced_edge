@@ -4,27 +4,76 @@ import '../css/App.css';
 import '../css/index.css';
 
 export function ContactInformation() {
-    return(
-        <div className="contact-info">
-            <div className="contact-info-phone">
-                <h3>Phone number:</h3>
-                <p>+44 7777 777 777</p>
-            </div>
-            <div className="contact-info-instagram">
-                <h3>Instagram:</h3>
-                <p>Instagram Link</p>
-            </div>
-            <div className="contact-info-facebook">
-                <h3>Facebook:</h3>
-                <p>Facebook Link</p>
-            </div>
-            <div className="contact-info-working-hours">
-                <h3>Working hours:</h3>
-                <p>Monday - Friday: 8:00 - 17:00</p>
-            </div>
+  return (
+    <div className="contact-info">
+
+      <div className="contact-row">
+        <span className="contact-icon">📞</span>
+        <div>
+          <h3>Phone</h3>
+          <p>
+            <a href="tel:+447881202979">+44 7881 202 979</a>
+          </p>
         </div>
-    )
+      </div>
+
+      <div className="contact-row">
+        <span className="contact-icon">✉️</span>
+        <div>
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:liam@advancededge.co.uk">
+              liam@advancededge.co.uk
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div className="contact-row">
+        <span className="contact-icon">📸</span>
+        <div>
+          <h3>Instagram</h3>
+          <p>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow us on Instagram
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div className="contact-row">
+        <span className="contact-icon">🔵</span>
+        <div>
+          <h3>Facebook</h3>
+          <p>
+            <a
+              href="https://www.facebook.com/people/Advanced-Edge-Ltd/61586378314756/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Advanced Edge Ltd on Facebook
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div className="contact-row">
+        <span className="contact-icon">⏰</span>
+        <div>
+          <h3>Working Hours</h3>
+          <p>Monday – Friday: 8:00am – 5:00pm</p>
+        </div>
+      </div>
+
+    </div>
+  );
 }
+
+
 
 export function ContactForm() {
   const [name, setName] = useState("");

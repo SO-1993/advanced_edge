@@ -796,6 +796,79 @@
   margin-bottom: 1.5rem;
 }
 
+/* Icon layout rows */
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+/* Icon styling */
+.contact-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-top: 0.25rem;
+  color: var(--accent);
+}
+
+/* Keep your previous text styles */
+.contact-info h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b2b4b2;
+  margin-bottom: 0.25rem;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Link styling */
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.contact-info a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
+}
+
+/* Mobile alignment */
+@media (max-width: 768px) {
+  .contact-row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-icon {
+    margin-top: 0;
+  }
+}
+
+
 .contact-info h3 {
   font-size: 0.85rem;
   letter-spacing: 0.12em;
@@ -822,6 +895,35 @@
     padding-top: 0;
   }
 }
+
+/* Contact info links */
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Subtle underline animation */
+.contact-info a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
+}
+
 
 
 .gallery-images {
