@@ -1,13 +1,13 @@
 import '../css/App.css';
 import '../css/index.css';
 
-import image16 from "../assets/images/image16.jpg";
+import image15 from "../assets/images/image15.jpg";
 import image12 from "../assets/images/image12.jpg";
 import image1 from "../assets/images/image1.jpg";
 import image4 from "../assets/images/image4.jpg";
 
 const services = [
-  { title: "New Driveways", image: image16 },
+  { title: "New Driveways", image: image12 },
   { title: "Patios & Paving", image: image12 },
   { title: "Groundworks & Drainage", image: image1 },
   { title: "Landscaping & Remedial Work", image: image4 },

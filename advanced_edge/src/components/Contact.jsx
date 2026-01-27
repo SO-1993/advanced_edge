@@ -81,15 +81,46 @@ export function ContactForm() {
   const [telephoneNumber, setTelephoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!agreed) {
       alert("Please agree to be contacted.");
       return;
     }
-    console.log({ name, email, telephoneNumber, message, agreed });
-    alert("Form submitted!");
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdooejn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          telephoneNumber,
+          message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setTelephoneNumber("");
+        setMessage("");
+        setAgreed(false);
+      } else {
+        throw new Error("Failed");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -102,6 +133,7 @@ export function ContactForm() {
           placeholder="Name"
           required
         />
+
         <input
           type="email"
           value={email}
@@ -109,12 +141,14 @@ export function ContactForm() {
           placeholder="Email"
           required
         />
+
         <input
           type="tel"
           value={telephoneNumber}
           onChange={(e) => setTelephoneNumber(e.target.value)}
           placeholder="Telephone number"
         />
+
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -122,6 +156,7 @@ export function ContactForm() {
           rows={5}
           required
         />
+
         <label className="checkbox-label">
           <input
             type="checkbox"
@@ -130,7 +165,26 @@ export function ContactForm() {
           />
           By ticking, I agree to share my form responses and allow Advanced Edge to contact me.
         </label>
-        <button type="submit" className="submit-btn">Send Message</button>
+
+        <button
+          type="submit"
+          className="submit-btn"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Sending..." : "Send Message"}
+        </button>
+
+        {status === "success" && (
+          <p className="success-text">
+            Thanks for reaching out! We'll get back to you shortly.
+          </p>
+        )}
+
+        {status === "error" && (
+          <p className="error-text">
+            Something went wrong. Please try again later.
+          </p>
+        )}
       </form>
     </div>
   );
