@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+
 import '../css/App.css';
 import '../css/index.css';
 
@@ -36,10 +39,10 @@ const galleryItems = [
   { src: image15, text: "Modern driveway with granite slab path and lighting" },
 ];
 
-// Helper to render a section
-function GallerySection({ title, items }) {
+// Section component
+function GallerySection({ title, items, sectionRef }) {
   return (
-    <div className="gallery-section">
+    <div className="gallery-section" ref={sectionRef}>
       <h1>{title}</h1>
       <div className="gallery-images">
         {items.map((item, index) => (
@@ -54,26 +57,73 @@ function GallerySection({ title, items }) {
 }
 
 function Gallery() {
+  const location = useLocation();
+
+  const drivewaysRef = useRef(null);
+  const patiosRef = useRef(null);
+  const groundworksRef = useRef(null);
+  const landscapingRef = useRef(null);
+
+  // Auto-detect sticky header height
+  const scrollWithOffset = (element) => {
+    const header = document.querySelector(".header");
+    const headerOffset = header?.offsetHeight || 0;
+
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition =
+      elementPosition + window.pageYOffset - headerOffset - 16; // small spacing buffer
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
+  // Scroll to correct section when navigated from services
+  useEffect(() => {
+    if (!location.state?.section) return;
+
+    const sectionMap = {
+      "New Driveways": drivewaysRef,
+      "Patios & Paving": patiosRef,
+      "Groundworks & Drainage": groundworksRef,
+      "Landscaping & Remedial Work": landscapingRef,
+    };
+
+    const targetRef = sectionMap[location.state.section];
+
+    if (targetRef?.current) {
+      // Wait one frame to ensure layout is stable
+      requestAnimationFrame(() => {
+        scrollWithOffset(targetRef.current);
+      });
+    }
+  }, [location.state]);
+
   return (
     <div className="gallery-page">
       <GallerySection
         title="New Driveways"
         items={galleryItems.slice(0, 3)}
+        sectionRef={drivewaysRef}
       />
 
       <GallerySection
         title="Patios & Paving"
         items={galleryItems.slice(3, 6)}
+        sectionRef={patiosRef}
       />
 
       <GallerySection
         title="Groundworks & Drainage"
         items={galleryItems.slice(6, 9)}
+        sectionRef={groundworksRef}
       />
 
       <GallerySection
         title="Landscaping & Remedial Work"
         items={galleryItems.slice(9)}
+        sectionRef={landscapingRef}
       />
     </div>
   );

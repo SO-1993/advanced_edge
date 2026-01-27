@@ -1,12 +1,12 @@
 /* ========================= */
-/* HEADER ONLY - CLEANED */
+/* HEADER
 /* ========================= */
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto; /* logo | spacer | utilities */
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 1.5rem 2.5rem;
-  gap: 2rem; /* spacing between logo, spacer, utilities */
+  gap: 2rem;
   z-index: 50;
 
   background-color: white;
@@ -15,7 +15,9 @@
   top: 0;
 }
 
+/* ========================= */
 /* BRAND LOGO */
+/* ========================= */
 .header_brand a {
   display: inline-block;
 }
@@ -27,15 +29,19 @@
   display: block;
 }
 
+/* ========================= */
 /* UTILITY LINKS */
+/* ========================= */
 .header-utility {
   display: flex;
-  align-items: center; /* vertical alignment fix */
-  gap: 1.5rem; /* perfect spacing between link and button */
-  justify-self: end; /* push to right */
+  align-items: center; 
+  gap: 1.5rem;
+  justify-self: end; 
 }
 
+/* ========================= */
 /* NAV / LINK STYLING */
+/* ========================= */
 .header-link {
   text-decoration: none;
   font-size: 0.9rem;
@@ -49,7 +55,10 @@
   color: var(--accent);
 }
 
+/* ========================= */
 /* CALL NOW BUTTON */
+/* ========================= */
+
 .call-now {
   padding: 0.6rem 1.5rem;
   font-size: 0.8rem;
@@ -73,16 +82,17 @@
 /* ========================= */
 /* RESPONSIVE / MOBILE */
 /* ========================= */
+
 @media (max-width: 768px) {
   .header {
-    grid-template-columns: auto 1fr auto; /* logo | spacer | utilities */
-    gap: 1.5rem; /* slightly smaller spacing for small screens */
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem; 
   }
 
   .header-utility {
-    flex-direction: row; /* horizontal row */
-    gap: 1rem; /* small gap, still readable */
-    justify-self: end; /* keep utilities right-aligned */
+    flex-direction: row;
+    gap: 1rem; 
+    justify-self: end;
   }
 
   .call-now {
@@ -106,6 +116,7 @@
 
 /* ========================= */
 /* HERO SECTION */
+/* ========================= */
 .hero {
   min-height: 85vh;
   display: flex;
@@ -159,7 +170,10 @@
   color: #e5e7eb;
 }
 
+/* ========================= */
 /* CTA Buttons */
+/* ========================= */
+
 .contact-us,
 .view-work {
   padding: 0.75rem 1.8rem;
@@ -208,6 +222,8 @@
 
 /* ========================= */
 /* QUICK SCAN */
+/* ========================= */
+
 .quick-scan {
   background-color: white;
   border-top: 1px solid var(--border-subtle);
@@ -257,6 +273,8 @@
 
 /* ========================= */
 /* WHY CHOOSE */
+/* ========================= */
+
 .why-choose {
   padding: 6rem 2rem;
   background-color: var(--bg-main);
@@ -311,6 +329,8 @@
 
 /* ========================= */
 /* OUR SERVICES */
+/* ========================= */
+
 .our-services {
   padding: 5rem 2rem;
   background-color: var(--bg-main);
@@ -386,6 +406,8 @@
 
 /* ========================= */
 /* OUR APPROACH */
+/* ========================= */
+
 .our-approach {
   padding: 6rem 2rem;
   background-color: white;
@@ -439,6 +461,8 @@
 
 /* ========================= */
 /* REVIEWS */
+/* ========================= */
+
 .reviews {
   padding: 6rem 2rem;
   background-color: white;
@@ -497,6 +521,8 @@
 
 /* ========================= */
 /* PERSONAL TOUCH */
+/* ========================= */
+
 .personal-touch {
   padding: 6rem 2rem;
   background-color: var(--bg-dark);
@@ -532,6 +558,8 @@
 
 /* ========================= */
 /* FAQ */
+/* ========================= */
+
 .faqs {
   padding: 6rem 2rem;
   background-color: var(--bg-main);
@@ -580,6 +608,8 @@
 
 /* ========================= */
 /* CALL TO ACTION */
+/* ========================= */
+
 .call-to-action {
   padding:5rem 2rem;
   background-color: var(--bg-dark);
@@ -618,6 +648,8 @@
 
 /* ========================= */
 /* CONTACT FORM */
+/* ========================= */
+
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -703,6 +735,8 @@
 
 /* ========================= */
 /* CONTACT LAYOUT */
+/* ========================= */
+
 .contact-layout {
   max-width: 1000px;
   margin: 3rem auto 0;
@@ -792,6 +826,8 @@
 
 /* ========================= */
 /* GALLERY */
+/* ========================= */
+
 .gallery-images {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -849,4 +885,56 @@
   .gallery-images {
     grid-template-columns:1fr;
   }
+}
+
+
+.gallery-section {
+  margin-bottom: 4rem;
+}
+
+.gallery-section h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+.hover-text {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .hover-text {
+  opacity: 1;
 }
