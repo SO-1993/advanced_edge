@@ -1,6 +1,3 @@
-import '../css/App.css';
-import '../css/index.css';
-
 function Reviews() {
   return (
     <section className="reviews">
@@ -14,7 +11,7 @@ function Reviews() {
             The team delivered exactly what was promised. Professional, tidy, and
             precise from the initial consultation through to the final finish.
           </p>
-          <p>- Rebel,  Stratford-upon-Avon</p>
+          <p>- Rebel, Stratford-upon-Avon</p>
         </div>
 
         <div className="review-card">
@@ -42,7 +39,7 @@ function Reviews() {
           <p className="stars">⭐⭐⭐⭐⭐</p>
           <p>
             From first contact to completion, everything was handled
-            professionally. Liam's attention to detail and quality of workmanship
+            professionally. Liam&apos;s attention to detail and quality of workmanship
             really stood out.
           </p>
           <p>- Ginge From Shard End, Birmingham</p>
