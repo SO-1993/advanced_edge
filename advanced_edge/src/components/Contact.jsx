@@ -1,44 +1,31 @@
-// ContactForm.jsx
-import { useState } from 'react';
-import '../css/App.css';
-import '../css/index.css';
+import { useState } from "react";
+import { FiPhone, FiMail, FiInstagram, FiFacebook, FiClock } from "react-icons/fi";
 
 export function ContactInformation() {
   return (
     <div className="contact-info">
-
       <div className="contact-row">
-        <span className="contact-icon">📞</span>
+        <FiPhone className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Phone</h3>
-          <p>
-            <a href="tel:+447881202979">+44 7881 202 979</a>
-          </p>
+          <p><a href="tel:+447881202979">+44 7881 202 979</a></p>
         </div>
       </div>
 
       <div className="contact-row">
-        <span className="contact-icon">✉️</span>
+        <FiMail className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Email</h3>
-          <p>
-            <a href="mailto:liam@advancededge.co.uk">
-              liam@advancededge.co.uk
-            </a>
-          </p>
+          <p><a href="mailto:liam@advancededge.co.uk">liam@advancededge.co.uk</a></p>
         </div>
       </div>
 
       <div className="contact-row">
-        <span className="contact-icon">📸</span>
+        <FiInstagram className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Instagram</h3>
           <p>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
               Follow us on Instagram
             </a>
           </p>
@@ -46,7 +33,7 @@ export function ContactInformation() {
       </div>
 
       <div className="contact-row">
-        <span className="contact-icon">🔵</span>
+        <FiFacebook className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Facebook</h3>
           <p>
@@ -62,17 +49,15 @@ export function ContactInformation() {
       </div>
 
       <div className="contact-row">
-        <span className="contact-icon">⏰</span>
+        <FiClock className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Working Hours</h3>
           <p>Monday – Friday: 8:00am – 5:00pm</p>
         </div>
       </div>
-
     </div>
   );
 }
-
 
 
 export function ContactForm() {
@@ -81,16 +66,18 @@ export function ContactForm() {
   const [telephoneNumber, setTelephoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [agreeError, setAgreeError] = useState("");
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!agreed) {
-      alert("Please agree to be contacted.");
+      setAgreeError("Please agree to be contacted.");
       return;
     }
 
+    setAgreeError("");
     setStatus("sending");
 
     try {
@@ -100,24 +87,17 @@ export function ContactForm() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name,
-          email,
-          telephoneNumber,
-          message,
-        }),
+        body: JSON.stringify({ name, email, telephoneNumber, message }),
       });
 
-      if (response.ok) {
-        setStatus("success");
-        setName("");
-        setEmail("");
-        setTelephoneNumber("");
-        setMessage("");
-        setAgreed(false);
-      } else {
-        throw new Error("Failed");
-      }
+      if (!response.ok) throw new Error("Failed");
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setTelephoneNumber("");
+      setMessage("");
+      setAgreed(false);
     } catch {
       setStatus("error");
     }
@@ -126,30 +106,41 @@ export function ContactForm() {
   return (
     <div id="contact-form">
       <form className="contact-form" onSubmit={handleSubmit}>
+        <label className="sr-only" htmlFor="contact-name">Name</label>
         <input
+          id="contact-name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
+          autoComplete="name"
           required
         />
 
+        <label className="sr-only" htmlFor="contact-email">Email</label>
         <input
+          id="contact-email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
+          autoComplete="email"
           required
         />
 
+        <label className="sr-only" htmlFor="contact-tel">Telephone number</label>
         <input
+          id="contact-tel"
           type="tel"
           value={telephoneNumber}
           onChange={(e) => setTelephoneNumber(e.target.value)}
           placeholder="Telephone number"
+          autoComplete="tel"
         />
 
+        <label className="sr-only" htmlFor="contact-message">Message</label>
         <textarea
+          id="contact-message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Message"
@@ -161,30 +152,37 @@ export function ContactForm() {
           <input
             type="checkbox"
             checked={agreed}
-            onChange={(e) => setAgreed(e.target.checked)}
+            onChange={(e) => {
+              setAgreed(e.target.checked);
+              if (e.target.checked) setAgreeError("");
+            }}
           />
           By ticking, I agree to share my form responses and allow Advanced Edge to contact me.
         </label>
 
-        <button
-          type="submit"
-          className="submit-btn"
-          disabled={status === "sending"}
-        >
+        {agreeError && (
+          <p className="error-text" role="alert">
+            {agreeError}
+          </p>
+        )}
+
+        <button type="submit" className="submit-btn" disabled={status === "sending"}>
           {status === "sending" ? "Sending..." : "Send Message"}
         </button>
 
-        {status === "success" && (
-          <p className="success-text">
-            Thanks for reaching out! We'll get back to you shortly.
-          </p>
-        )}
+        <div aria-live="polite">
+          {status === "success" && (
+            <p className="success-text">
+              Thanks for reaching out! We&apos;ll get back to you shortly.
+            </p>
+          )}
 
-        {status === "error" && (
-          <p className="error-text">
-            Something went wrong. Please try again later.
-          </p>
-        )}
+          {status === "error" && (
+            <p className="error-text">
+              Something went wrong. Please try again later.
+            </p>
+          )}
+        </div>
       </form>
     </div>
   );
