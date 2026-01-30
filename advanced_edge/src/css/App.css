@@ -930,8 +930,6 @@
 /* ========================= */
 /* GALLERY */
 /* ========================= */
-
-/* Keep ONE gallery implementation to avoid overrides/confusion */
 .gallery-section {
   margin-bottom: 4rem;
 }

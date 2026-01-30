@@ -8,7 +8,7 @@ export function ContactInformation() {
         <FiPhone className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Phone</h3>
-          <p><a href="tel:+447881202979">+44 7881 202 979</a></p>
+          <p><a href="tel:+447881202979">07881 202979</a></p>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export function ContactInformation() {
         <div>
           <h3>Instagram</h3>
           <p>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/advancededge_ltd/" target="_blank" rel="noopener noreferrer">
               Follow us on Instagram
             </a>
           </p>
