@@ -2,9 +2,9 @@ import Gallery from "../components/Gallery";
 
 const GalleryPage = () => {
   return (
-    <div>
-     <Gallery />
-    </div>
+    <main>
+      <Gallery />
+    </main>
   );
 };
 
