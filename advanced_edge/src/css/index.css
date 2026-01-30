@@ -125,6 +125,8 @@ p {
 /* ========================= */
 /* BUTTONS */
 /* ========================= */
+
+/* Base button feel (no sizing here) */
 .button,
 .call-now,
 .get-in-touch,
@@ -134,6 +136,22 @@ p {
   cursor: pointer;
   transition: all var(--transition-fast);
   font-family: inherit;
+}
+
+/* Default (optional) generic button sizing */
+.button {
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Submit button sizing (this is what you actually needed) */
+.submit-btn {
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* Primary */
@@ -166,6 +184,7 @@ p {
   color: var(--accent);
   background-color: rgba(143, 159, 111, 0.08);
 }
+
 
 /* ========================= */
 /* CARDS */
