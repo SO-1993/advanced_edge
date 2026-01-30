@@ -52,7 +52,7 @@ export function ContactInformation() {
         <FiClock className="contact-icon" aria-hidden="true" />
         <div>
           <h3>Working Hours</h3>
-          <p>Monday – Friday: 8:00am – 5:00pm</p>
+          <p>Mon – Fri: 8:00am – 5:00pm</p>
         </div>
       </div>
     </div>
