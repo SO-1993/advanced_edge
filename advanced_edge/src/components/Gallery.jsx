@@ -1,58 +1,61 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import '../css/App.css';
-import '../css/index.css';
-
-import image1 from "../assets/images/image1.jpg";
-import image2 from "../assets/images/image2.jpg";
-import image3 from "../assets/images/image3.jpg";
-import image4 from "../assets/images/image4.jpg";
-import image5 from "../assets/images/image5.jpg";
-import image6 from "../assets/images/image6.jpg";
-import image7 from "../assets/images/image7.jpg";
-import image8 from "../assets/images/image8.jpg";
-import image9 from "../assets/images/image9.jpg";
-import image10 from "../assets/images/image10.jpg";
-import image11 from "../assets/images/image11.jpg";
-import image12 from "../assets/images/image12.jpg";
-import image13 from "../assets/images/image13.jpg";
-import image14 from "../assets/images/image14.jpg";
-import image15 from "../assets/images/image15.jpg";
-
-// Pair each image with its description
+/**
+ * Put your 52 images in: public/assets/images/
+ * Then reference them by filename here.
+ *
+ * Tip: If you create thumbnails later:
+ * - thumbs in public/assets/images/thumbs/
+ * - full in public/assets/images/full/
+ * and swap the src to thumbs for the grid.
+ */
 const galleryItems = [
-  { src: image1, text: "Precise excavation for water main connection" },
-  { src: image2, text: "Patio slabs laid and gardens topsoiled throughout" },
-  { src: image3, text: "Concrete floors poured, ready for garage build" },
-  { src: image4, text: "Sleeper retaining wall installed to level uneven ground" },
-  { src: image5, text: "Steps installed for level garden access" },
-  { src: image6, text: "Kandla Grey porcelain slabs laid for a modern patio" },
-  { src: image7, text: "Side access finished using buff riven slabs" },
-  { src: image8, text: "Entrance steps constructed to NHBC compliant slabs" },
-  { src: image9, text: "Shed base installed behind garage, utilising unused space" },
-  { src: image10, text: "Kandla Grey porcelain with charcoal block border" },
-  { src: image11, text: "Complete garden transformation with porcelain patio and turf" },
-  { src: image12, text: "Block paved driveway installed with drainage improvements" },
-  { src: image13, text: "Patio extension completed using buff riven paving" },
-  { src: image14, text: "Block paving driveway with granite slab path and lighting" },
-  { src: image15, text: "Modern driveway with granite slab path and lighting" },
+  { file: "image1.jpg", text: "Precise excavation for water main connection" },
+  { file: "image2.jpg", text: "Patio slabs laid and gardens topsoiled throughout" },
+  { file: "image3.jpg", text: "Concrete floors poured, ready for garage build" },
+  { file: "image4.jpg", text: "Sleeper retaining wall installed to level uneven ground" },
+  { file: "image5.jpg", text: "Steps installed for level garden access" },
+  { file: "image6.jpg", text: "Kandla Grey porcelain slabs laid for a modern patio" },
+  { file: "image7.jpg", text: "Side access finished using buff riven slabs" },
+  { file: "image8.jpg", text: "Entrance steps constructed to NHBC compliant slabs" },
+  { file: "image9.jpg", text: "Shed base installed behind garage, utilising unused space" },
+  { file: "image10.jpg", text: "Kandla Grey porcelain with charcoal block border" },
+  { file: "image11.jpg", text: "Complete garden transformation with porcelain patio and turf" },
+  { file: "image12.jpg", text: "Block paved driveway installed with drainage improvements" },
+  { file: "image13.jpg", text: "Patio extension completed using buff riven paving" },
+  { file: "image14.jpg", text: "Block paving driveway with granite slab path and lighting" },
+  { file: "image15.jpg", text: "Modern driveway with granite slab path and lighting" },
+  // ...add the rest up to 52 here as { file, text }
 ];
 
-// Section component
 function GallerySection({ title, items, sectionRef }) {
   return (
-    <div className="gallery-section" ref={sectionRef}>
+    <section className="gallery-section" ref={sectionRef} aria-label={title}>
       <h1>{title}</h1>
+
       <div className="gallery-images">
-        {items.map((item, index) => (
-          <div key={index} className="image-container">
-            <img src={item.src} alt={item.text} />
-            <div className="hover-text">{item.text}</div>
-          </div>
-        ))}
+        {items.map((item) => {
+          const src = `/assets/images/${item.file}`; // served from /public
+
+          return (
+            <div key={item.file} className="image-container">
+              <img
+                src={src}
+                alt={item.text}
+                loading="lazy"
+                decoding="async"
+                // If your images are roughly square, this helps reduce layout shift.
+                // If not square, you can remove width/height.
+                width="800"
+                height="800"
+              />
+              <div className="hover-text">{item.text}</div>
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -64,41 +67,38 @@ function Gallery() {
   const groundworksRef = useRef(null);
   const landscapingRef = useRef(null);
 
-  // Auto-detect sticky header height
+  // map only once
+  const sectionMap = useMemo(
+    () => ({
+      "New Driveways": drivewaysRef,
+      "Patios & Paving": patiosRef,
+      "Groundworks & Drainage": groundworksRef,
+      "Landscaping & Remedial Work": landscapingRef,
+    }),
+    []
+  );
+
   const scrollWithOffset = (element) => {
     const header = document.querySelector(".header");
     const headerOffset = header?.offsetHeight || 0;
 
     const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition =
-      elementPosition + window.pageYOffset - headerOffset - 16; // small spacing buffer
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 16;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
 
-  // Scroll to correct section when navigated from services
   useEffect(() => {
-    if (!location.state?.section) return;
+    const sectionName = location.state?.section;
+    if (!sectionName) return;
 
-    const sectionMap = {
-      "New Driveways": drivewaysRef,
-      "Patios & Paving": patiosRef,
-      "Groundworks & Drainage": groundworksRef,
-      "Landscaping & Remedial Work": landscapingRef,
-    };
+    const targetRef = sectionMap[sectionName];
+    if (!targetRef?.current) return;
 
-    const targetRef = sectionMap[location.state.section];
-
-    if (targetRef?.current) {
-      // Wait one frame to ensure layout is stable
-      requestAnimationFrame(() => {
-        scrollWithOffset(targetRef.current);
-      });
-    }
-  }, [location.state]);
+    requestAnimationFrame(() => {
+      scrollWithOffset(targetRef.current);
+    });
+  }, [location.state, sectionMap]);
 
   return (
     <div className="gallery-page">
