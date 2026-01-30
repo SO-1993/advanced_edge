@@ -1,34 +1,61 @@
-import '../css/App.css';
-import '../css/index.css';
+import "../css/App.css";
+import "../css/index.css";
 
-function WhyChoose() {
+import {
+  FiTool,
+  FiCheckSquare,
+  FiUsers,
+  FiStar
+} from "react-icons/fi";
+
+function FeaturesFeather() {
   return (
-    <section className="why-choose">
-      <div className="why-choose-inner">
-        <h2>Why Choose Advanced Edge</h2>
-
-        <div className="why-item">
-          <h5>🛠 Craftsmanship Built on Experience</h5>
-          <p>Precision-led groundwork and paving shaped by years of hands-on, professional site experience.</p>
+    <section className="features">
+      <div className="feature">
+        <FiTool className="feature-icon" />
+        <div>
+          <h4>Craftsmanship Built on Experience</h4>
+          <p>
+            Precision-led groundwork and paving shaped by years of hands-on,
+            professional site experience.
+          </p>
         </div>
+      </div>
 
-        <div className="why-item">
-          <h5>📋 Uncompromising Standards</h5>
-          <p>Every stage carefully planned and executed to ensure long-term performance and refined results.</p>
+      <div className="feature">
+        <FiCheckSquare className="feature-icon" />
+        <div>
+          <h4>Uncompromising Standards</h4>
+          <p>
+            Every stage carefully planned and executed to ensure long-term
+            performance and refined results.
+          </p>
         </div>
+      </div>
 
-        <div className="why-item">
-          <h5>🤝 Professional, Transparent Service</h5>
-          <p>Clear communication, honest guidance, and well-defined pricing from consultation to completion.</p>
+      <div className="feature">
+        <FiUsers className="feature-icon" />
+        <div>
+          <h4>Professional, Transparent Service</h4>
+          <p>
+            Clear communication, honest guidance, and well-defined pricing from
+            consultation to completion.
+          </p>
         </div>
+      </div>
 
-        <div className="why-item">
-          <h5>✨ Pride in Detail & Finish</h5>
-          <p>Careful attention to every detail, leaving a clean, precise finish that reflects our reputation.</p>
+      <div className="feature">
+        <FiStar className="feature-icon" />
+        <div>
+          <h4>Pride in Detail & Finish</h4>
+          <p>
+            Careful attention to every detail, leaving a clean, precise finish
+            that reflects our reputation.
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-export default WhyChoose;
+export default FeaturesFeather;
