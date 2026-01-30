@@ -1,16 +1,10 @@
-import "../css/App.css";
-import "../css/index.css";
+import { FiTool, FiCheckSquare, FiUsers, FiStar } from "react-icons/fi";
 
-import {
-  FiTool,
-  FiCheckSquare,
-  FiUsers,
-  FiStar
-} from "react-icons/fi";
-
-function FeaturesFeather() {
+function WhyChoose() {
   return (
     <section className="features">
+      <h2>Why Choose Advanced Edge?</h2>
+
       <div className="feature">
         <FiTool className="feature-icon" />
         <div>
@@ -58,4 +52,4 @@ function FeaturesFeather() {
   );
 }
 
-export default FeaturesFeather;
+export default WhyChoose;
