@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 const services = [
   { title: "New Driveways", image: "/assets/images/double_driveway2.jpeg" },
-  { title: "Patios & Paving", image: "/assets/images/image12.jpg" },
+  { title: "Patios & Paving", image: "/assets/images/patio_slabs.jpg" },
   { title: "Groundworks & Drainage", image: "/assets/images/excevation.jpg" },
-  { title: "Landscaping & Remedial Work", image: "/assets/images/image4.jpg" },
+  { title: "Landscaping & Remedial Work", image: "/assets/images/sleeper_wall.jpg" },
 ];
 
 function OurServices() {
