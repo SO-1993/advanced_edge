@@ -19,7 +19,7 @@ function Header() {
           Gallery
         </Link>
 
-        <a href="tel:+441234567890" className="call-now">
+        <a href="tel:+447881202979" className="call-now">
           Call Now
         </a>
       </nav>
