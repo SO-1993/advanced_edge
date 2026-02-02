@@ -21,7 +21,6 @@ const HomePage = () => {
       <PersonalTouch />
       <FAQs />
       <CallToAction />
-      <Footer />
     </main>
   );
 };
