@@ -1,6 +1,5 @@
-/* App.css */
 /* ========================= */
-/* HEADER
+/* HEADER (GRID DESKTOP, FLEX MOBILE) */
 /* ========================= */
 .header {
   display: grid;
@@ -9,16 +8,13 @@
   padding: 1.5rem 2.5rem;
   gap: 2rem;
   z-index: 50;
-
-  background-color: white;
+  background-color: #fff;
   border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
 }
 
-/* ========================= */
 /* BRAND LOGO */
-/* ========================= */
 .header_brand a {
   display: inline-block;
 }
@@ -30,9 +26,7 @@
   display: block;
 }
 
-/* ========================= */
 /* UTILITY LINKS */
-/* ========================= */
 .header-utility {
   display: flex;
   align-items: center;
@@ -40,9 +34,7 @@
   justify-self: end;
 }
 
-/* ========================= */
-/* NAV / LINK STYLING */
-/* ========================= */
+/* NAV / LINK */
 .header-link {
   text-decoration: none;
   font-size: 0.9rem;
@@ -56,9 +48,7 @@
   color: var(--accent);
 }
 
-/* ========================= */
-/* CALL NOW BUTTON */
-/* ========================= */
+/* CALL NOW */
 .call-now {
   padding: 0.6rem 1.5rem;
   font-size: 0.8rem;
@@ -69,8 +59,8 @@
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
   background: transparent;
-  white-space: nowrap; /* prevents stacking */
-  flex-shrink: 0; /* prevents shrinking */
+  white-space: nowrap;
+  flex-shrink: 0;
   color: var(--text-main);
 }
 
@@ -80,35 +70,77 @@
 }
 
 /* ========================= */
-/* RESPONSIVE / MOBILE */
+/* MOBILE */
 /* ========================= */
 @media (max-width: 768px) {
   .header {
-    grid-template-columns: auto 1fr auto;
-    gap: 1.5rem;
-  }
-
-  .header-utility {
-    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1rem;
     gap: 1rem;
-    justify-self: end;
-  }
-
-  .call-now {
-    margin: 0;
   }
 
   .header_brand a img {
-    height: 45px; /* shrink logo */
+    height: 38px;
+  }
+
+  .header-utility {
+    gap: 0.75rem;
+  }
+
+  .header-link {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+  }
+
+  .call-now {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.75rem;
   }
 }
 
-/* OPTIONAL: Sticky Shadow on Scroll */
+/* ========================= */
+/* VERY SMALL PHONES (key fix) */
+/* ========================= */
+@media (max-width: 420px) {
+  .header_brand a img {
+    height: 32px; /* 🔥 frees horizontal space */
+  }
+
+  .header-utility {
+    gap: 0.5rem;
+  }
+
+  .call-now {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ========================= */
+/* EXTRA SMALL (iPhone SE etc.) */
+/* ========================= */
+@media (max-width: 360px) {
+  .header_brand a img {
+    height: 28px; /* last-resort shrink */
+  }
+
+  .call-now {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* OPTIONAL: Sticky Shadow */
 .header.scrolled {
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   background-color: white;
   transition: box-shadow 0.3s ease;
 }
+
+
 
 /* ========================= */
 /* HERO SECTION */
