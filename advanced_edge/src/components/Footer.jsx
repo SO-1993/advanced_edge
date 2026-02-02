@@ -1,8 +1,9 @@
+// src/components/Footer.jsx
 import { Link } from "react-router-dom";
 import new_logo from "../assets/images/new_logo.png";
 
-import '../css/App.css';
-import '../css/index.css';
+import "../css/App.css";
+import "../css/index.css";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -19,19 +20,25 @@ function Footer() {
               className="footer-logo"
             />
           </Link>
+
           <p className="footer-tagline">
             Refined groundworks, paving & landscaping
-            <br />
-            — built to last.
+            <br />— built to last.
           </p>
         </div>
 
         {/* Links */}
         <nav className="footer-nav" aria-label="Footer">
           <h3 className="footer-heading">Explore</h3>
-          <Link to="/" className="footer-link">Home</Link>
-          <Link to="/gallery" className="footer-link">Gallery</Link>
-          <a href="#contact-form" className="footer-link">Contact</a>
+          <Link to="/" className="footer-link">
+            Home
+          </Link>
+          <Link to="/gallery" className="footer-link">
+            Gallery
+          </Link>
+          <a href="#contact-form" className="footer-link">
+            Contact
+          </a>
         </nav>
 
         {/* Contact */}
@@ -47,14 +54,17 @@ function Footer() {
 
           <p className="footer-small">Mon–Fri: 8:00am – 5:00pm</p>
 
-          <a className="footer-cta" href="tel:+447881202979">
+          {/* Make CTA match header Call Now exactly */}
+          <a className="call-now footer-call" href="tel:+447881202979">
             Call now
           </a>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p className="footer-small">© {year} Advanced Edge Ltd. All rights reserved.</p>
+        <p className="footer-small">
+          © {year} Advanced Edge Ltd. All rights reserved.
+        </p>
       </div>
     </footer>
   );
