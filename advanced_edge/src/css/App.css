@@ -230,6 +230,34 @@
 }
 
 /* ========================= */
+/* HERO ARROWS — MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  .arrow {
+    font-size: 1.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .arrow.left {
+    left: 6px;
+  }
+
+  .arrow.right {
+    right: 6px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+  .arrow {
+    font-size: 1.5rem;
+    padding: 0.35rem 0.55rem;
+  }
+}
+
+
+
+/* ========================= */
 /* CTA Buttons */
 /* ========================= */
 .contact-us,
