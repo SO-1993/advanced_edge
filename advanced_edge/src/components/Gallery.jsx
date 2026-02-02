@@ -75,7 +75,7 @@ const groundworksAndDrainageItems = [
   { file: "footpath6.jpeg", text: "Part 5 of footpath project" },
   { file: "footpath5.jpeg", text: "Part 6 of footpath project" },
   {
-    file: "excavation.jpg",
+    file: "excevation.jpg",
     text: "Precise excavation for water main connection",
   },
   {
