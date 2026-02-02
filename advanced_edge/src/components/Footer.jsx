@@ -1,17 +1,15 @@
-// src/components/Footer.jsx
 import { Link } from "react-router-dom";
-import new_logo from "../assets/images/new_logo.png";
 
 import "../css/App.css";
 import "../css/index.css";
 
 function Footer() {
   const year = new Date().getFullYear();
+  const new_logo = "/assets/images/new_logo.png";
 
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer-inner">
-        {/* Brand */}
         <div className="footer-brand">
           <Link to="/" aria-label="Go to homepage">
             <img
@@ -27,21 +25,13 @@ function Footer() {
           </p>
         </div>
 
-        {/* Links */}
         <nav className="footer-nav" aria-label="Footer">
           <h3 className="footer-heading">Explore</h3>
-          <Link to="/" className="footer-link">
-            Home
-          </Link>
-          <Link to="/gallery" className="footer-link">
-            Gallery
-          </Link>
-          <a href="#contact-form" className="footer-link">
-            Contact
-          </a>
+          <Link to="/" className="footer-link">Home</Link>
+          <Link to="/gallery" className="footer-link">Gallery</Link>
+          <a href="#contact-form" className="footer-link">Contact</a>
         </nav>
 
-        {/* Contact */}
         <div className="footer-contact">
           <h3 className="footer-heading">Get in touch</h3>
 
@@ -54,7 +44,6 @@ function Footer() {
 
           <p className="footer-small">Mon–Fri: 8:00am – 5:00pm</p>
 
-          {/* Make CTA match header Call Now exactly */}
           <a className="call-now footer-call" href="tel:+447881202979">
             Call now
           </a>

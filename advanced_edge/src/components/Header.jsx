@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import new_logo from "../assets/images/new_logo.png";
 
 function Header() {
+  const new_logo = "/assets/images/new_logo.png";
+
   return (
     <header className="header">
       <div className="header_brand">
@@ -19,7 +20,7 @@ function Header() {
           Gallery
         </Link>
 
-        <a href="tel:+441234567890" className="call-now">
+        <a href="tel:+447881202979" className="call-now">
           Call Now
         </a>
       </nav>
